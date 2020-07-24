@@ -1,7 +1,8 @@
 type Member @entity {
   id: ID!
   twitterId: ID!
-  justification: Bytes!
+  justification: String!
+  active: Boolean
 }
 
 type AragonInfo @entity {

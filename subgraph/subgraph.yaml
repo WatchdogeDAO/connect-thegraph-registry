@@ -1,5 +1,3 @@
-# Do not edit subgraph.yaml, this is a generated file.
-# Instead, edit subgraph.template.yaml and run `yarn manifest-<network>-[staging]`
 specVersion: 0.0.2
 description: A template for Aragon subgraphs
 repository: https://github.com/aragon/connect
@@ -116,25 +114,22 @@ templates:
       file: ./src/aragon/mappings/MiniMeToken.ts
 
   - kind: ethereum/contract
-    name: Voting
+    name: CuratedList
     network: rinkeby
     source:
-      abi: Voting
+      abi: CuratedList
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
       language: wasm/assemblyscript
       entities:
-        - Vote
-        - Cast
+        - Member
       abis:
-        - name: Voting
-          file: ./abis/Voting.json
+        - name: CuratedList
+          file: ./abis/CuratedList.json
       eventHandlers:
-        - event: StartVote(indexed uint256,indexed address,string)
-          handler: handleStartVote
-        - event: CastVote(indexed uint256,indexed address,bool,uint256)
-          handler: handleCastVote
-        - event: ExecuteVote(indexed uint256)
-          handler: handleExecuteVote
-      file: ./src/Voting.ts
+        - event: ArchiverAdded(string,string)
+          handler: handleArchiverAdded
+        - event: ArchiverRemoved(string,string)
+          handler: handleArchiverRemoved
+      file: ./src/CuratedList.ts

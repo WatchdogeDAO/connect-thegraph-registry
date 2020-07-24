@@ -1,5 +1,3 @@
-# Do not edit subgraph.yaml, this is a generated file.
-# Instead, edit subgraph.template.yaml and run `yarn manifest-<network>-[staging]`
 specVersion: 0.0.2
 description: A template for Aragon subgraphs
 repository: https://github.com/aragon/connect
@@ -16,10 +14,10 @@ templates:
   {{> Kernel.template.yaml}}
   {{> MiniMeToken.template.yaml}}
   - kind: ethereum/contract
-    name: CuratedRegistry
+    name: CuratedList
     network: {{network}}
     source:
-      abi: CuratedRegistry
+      abi: CuratedList
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.1
@@ -27,11 +25,11 @@ templates:
       entities:
         - Member
       abis:
-        - name: CuratedRegistry
-          file: ./abis/CuratedRegistry.json
+        - name: CuratedList
+          file: ./abis/CuratedList.json
       eventHandlers:
         - event: ArchiverAdded(string,string)
           handler: handleArchiverAdded
         - event: ArchiverRemoved(string,string)
           handler: handleArchiverRemoved
-      file: ./src/CuratedRegistry.ts
+      file: ./src/CuratedList.ts
