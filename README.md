@@ -1,4 +1,5 @@
-# The Graph Connector for Aragon Connect
+# Curated List Subgraph + Connector.
+A custom subgraph and connector for DAOs to manage and query a curated list of elements.
 
 ## Usage
 
